@@ -1,0 +1,42 @@
+drawGrid(char grid[3][3]): This function takes a 3x3 character array as input, which represents the Tic Tac Toe grid. It iterates over each element of the array and prints it to the console, effectively drawing the current state of the Tic Tac Toe grid.
+
+checkWin(char grid[3][3]): This function checks if there’s a win condition on the current Tic Tac Toe grid. It checks each row, column, and both diagonals for three identical non-space characters, which would indicate a win. If it finds a win condition, it returns true; otherwise, it returns false.
+
+checkFull(char grid[3][3]): This function checks if the Tic Tac Toe grid is full, i.e., if all moves have been made. It iterates over each element of the grid, and if it finds a space character (which represents an empty cell), it returns false. If it doesn’t find any space characters, it returns true, indicating that the grid is full.
+
+main(): This is the main function where the game loop is implemented. It first initializes an empty Tic Tac Toe grid and sets the starting player to ‘X’. Then it enters a loop where it repeatedly does the following until a break condition is met:
+
+Draws the current state of the grid.
+Prompts the current player to make a move.
+Checks if the move is valid (i.e., within the range of 1-9 and the corresponding cell on the grid is empty). If the move is valid, it updates the grid and checks for a win condition or a draw condition. If either condition is met, it announces the result and breaks the loop. If neither condition is met, it switches the player and continues to the next iteration of the loop.
+If the move is not valid, it prompts the player to try again.
+
+
+
+getChoiceName(int choice): This function takes an integer as input and returns the corresponding choice name as a string. The choices are “Rock”, “Paper”, and “Scissors”. It uses the input integer as an index to access the corresponding element in the choices array.
+
+determineWinner(int userChoice, int computerChoice): This function takes two integers as input, representing the user’s choice and the computer’s choice. It checks if the user’s choice and the computer’s choice are the same (in which case it’s a draw), or if the user’s choice beats the computer’s choice (in which case the user wins), or if the computer’s choice beats the user’s choice (in which case the computer wins). It returns 0 for a draw, 1 for a user win, and -1 for a computer win.
+
+displayResult(int result, GameResult& gameResult): This function takes an integer and a GameResult object as input. The integer represents the result of a game round (0 for a draw, 1 for a user win, and -1 for a computer win). The GameResult object keeps track of the user’s and the computer’s scores. The function updates the scores based on the result and displays the result and the updated scores.
+
+saveResult(const GameResult& gameResult): This function takes a GameResult object as input and saves the user’s and the computer’s scores to a file named game_results.txt.
+
+The do...while loop in the main() function is the main game loop. It repeatedly prompts the user to make a choice, generates a random choice for the computer, determines the winner of the round, displays the result, and saves the result to a file. The loop continues until the user chooses to quit the game.
+
+
+struct Player_M and struct Player_S: These are data structures that hold information about each player. Player_M is used for multiple players and contains the player’s name and their Bingo card. Player_S is used for a single player and contains the player’s name, their maximum score, and their Bingo card.
+
+BingoGen(int arr[5][5]): This function generates a Bingo card. It fills a 5x5 array with unique random numbers in each column. The numbers are between 1 and 75, with 1-15 in the first column, 16-30 in the second column, and so on.
+
+Menu(): This function displays the menu to the user and returns the user’s choice. The user can choose to play in single player mode, multiple players mode, or exit the game.
+
+printCard(int arr[5][5]): This function prints a 5x5 Bingo card. It takes a 5x5 array as input and prints it in a 5x5 grid format.
+
+winCheck(Player_S &p1 ,int arr[5][5], int arr2[5][5]): This function checks if the single player has won the game. It takes as input a Player_S object and two 5x5 arrays (the Bingo card and the player’s card). It checks each row, column, and diagonal to see if all the numbers on the player’s card match the numbers on the Bingo card. If the player has a complete row, column, or diagonal of matching numbers, they win the game. If the player’s score is higher than their previous maximum score, the maximum score is updated.
+
+winCheckMulti(Player_M* players, int Pl_size, int arr2[5][5]): This function checks if any of the multiple players have won the game. It takes as input an array of Player_M objects, the number of players, and a 5x5 array (the Bingo card). It checks each player’s card against the Bingo card in the same way as the winCheck function.
+
+saveScore(int score): This function saves the highest score to a file named Score.txt. It takes as input the score to be saved.
+
+loadScore(): This function reads the highest score from the file Score.txt and returns it
+
